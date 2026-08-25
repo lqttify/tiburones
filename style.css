@@ -1,11 +1,16 @@
 #menu {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  gap: 20px !important;
+  position: absolute;
+  left: 0;
+  top:0;
 
   width: 35%;
-  height: 100vh;
+  height:100vh;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 20px;
   background: rgba(255, 255, 255, 0.7);
 }
