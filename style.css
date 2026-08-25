@@ -29,7 +29,7 @@
 }
 
 #explorarBTN {
-  background-color: #3498db;
+  background-color: #5EB1BF;
   color: white;
   font-size: 16px;
   font-family: arial, sans-serif;
@@ -41,5 +41,5 @@
 }
 
 #explorarBTN:hover {
-  background-color: #2980b9
+  background-color: ##042A2B;
 }
