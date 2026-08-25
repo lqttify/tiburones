@@ -43,3 +43,19 @@
 #explorarBTN:hover {
   background-color: #042A2B !important ;
 }
+
+#opcionesBTN {
+  background-color: #5EB1BF;
+  color: white;
+  font-size: 16px;
+  font-family: arial, sans-serif;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#opcionesBTN:hover {
+  background-color: #042A2B !important ;
+}
