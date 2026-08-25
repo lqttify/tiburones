@@ -29,9 +29,17 @@
 }
 
 .explorarBTN {
-  font-size: 15px;  
+  background-color: #3498db;
+  color: white;
+  font-size: 16px;
+  font-family: arial, sans-serif;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-.opcionesBTN {
-  font-size: 15px;  
+.explorarBTN:hover {
+  background-color: #2980b9
 }
