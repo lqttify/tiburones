@@ -16,6 +16,7 @@
 }
 
 .titulo {
+  font-family: "Concert One", sans-serif;
   font-size: 50px;
   margin-bottom: 5px;
   font-weight: bold;
@@ -23,6 +24,7 @@
 }
 
 .subtitulo {
+  font-family: "Concert One", sans-serif;
   font-size: 30px;
   margin-top: 0px;
   display: block;
