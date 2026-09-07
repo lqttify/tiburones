@@ -6,7 +6,7 @@ body {
 
 #menu {
   position: absolute;
-  left: 0;
+  left: 10;
   top:0;
 
   width: max-content;
