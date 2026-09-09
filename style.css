@@ -6,8 +6,8 @@ body {
 
 #menu {
   position: absolute;
-  left: 20;
-  top:0;
+  left: 20px;
+  top: 0px;
 
   width: max-content;
   height:100vh;
