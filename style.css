@@ -5,8 +5,8 @@ html, body {
 }
 
 #menu {
-  margin: 0;
-  padding: 0;
+  margin: 20px;
+  padding: 20px;
   position: relative;
   left: 0px;
   top: 0px;
