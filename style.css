@@ -36,6 +36,7 @@ html, body {
   font-size: 20px;
   margin-top: 0px;
   display: block;
+  white-space: nowrap;
 }
 
 #explorarBTN {
