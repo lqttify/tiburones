@@ -1,8 +1,6 @@
 html, body {
   min-height: 100vh;
   background-image: linear-gradient(to bottom, #9DBEBB, #77ACA2, #468189, #031926);
-  background-repeat: no-repeat;
-  background-size: center/cover;
   background-attachment: fixed;
 }
 
