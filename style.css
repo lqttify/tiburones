@@ -9,7 +9,7 @@ html, body {
   margin: 0px;
   padding: 30px;
   position: relative;
-  left: 30px;
+  left: 0px;
   top: 0px;
   width: 500px;
   height:100vh;
@@ -20,6 +20,7 @@ html, body {
   align-items: center;
 
   gap: 15px;
+  ba
   background-color: rgba(255, 255, 255, 0.7);
 }
 
