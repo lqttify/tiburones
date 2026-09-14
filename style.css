@@ -26,14 +26,14 @@ html, body {
 }
 
 .titulo {
-  font-size: 70px;
+  font-size: 60px;
   margin-bottom: 5px;
   font-weight: bold;
   display: block;
 }
 
 .subtitulo {
-  font-size: 40px;
+  font-size: 30px;
   margin-top: 0px;
   display: block;
 }
