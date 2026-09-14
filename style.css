@@ -33,7 +33,7 @@ html, body {
 }
 
 .subtitulo {
-  font-size: 40px;
+  font-size: 30px;
   margin-top: 0px;
   display: block;
 }
@@ -41,7 +41,7 @@ html, body {
 #explorarBTN {
   background-color: #068D9D;
   color: white;
-  font-size: 30px;
+  font-size: 20px;
   font-family: "Concert One", sans-serif;
   padding: 12px 24px;
   border: none;
@@ -57,7 +57,7 @@ html, body {
 #opcionesBTN {
   background-color: #068D9D;
   color: white;
-  font-size: 30px;
+  font-size: 20px;
   font-family: "Concert One", sans-serif;
   padding: 12px 24px;
   border: none;
