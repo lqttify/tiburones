@@ -22,7 +22,7 @@ html, body {
   align-items: center;
 
   gap: 15px;
-  background-color: rgba(255, 255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 255, 0.3);
 }
 
 .titulo {
@@ -33,7 +33,7 @@ html, body {
 }
 
 .subtitulo {
-  font-size: 20px;
+  font-size: 30px;
   margin-top: 0px;
   display: block;
 }
@@ -41,7 +41,7 @@ html, body {
 #explorarBTN {
   background-color: #068D9D;
   color: white;
-  font-size: 15px;
+  font-size: 20px;
   font-family: "Concert One", sans-serif;
   padding: 12px 24px;
   border: none;
@@ -57,7 +57,7 @@ html, body {
 #opcionesBTN {
   background-color: #068D9D;
   color: white;
-  font-size: 15px;
+  font-size: 20px;
   font-family: "Concert One", sans-serif;
   padding: 12px 24px;
   border: none;
