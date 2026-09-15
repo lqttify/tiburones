@@ -31,15 +31,14 @@ html, body {
   font-weight: bold;
   display: block;
   color: white;
-  -webkit-text-stroke: 2px black;
+  -webkit-text-stroke: 1px teal;
 }
 
 .subtitulo {
   font-size: 30px;
   margin-top: 0px;
   display: block;
-  color: white;
-  -webkit-text-stroke: 2px black;
+  color: teal;
 }
 
 #explorarBTN {
