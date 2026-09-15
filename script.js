@@ -1,4 +1,11 @@
-<script> 
-  const menu = document.getElementById("menu"); 
-  const explorarBTN = document.getElementById("explorarBTN"); 
-  const opcionesBTN = document.getElementById("opcionesBTN"); explorarBTN.addEventListener("click", function() { menu.classList.add("deslizar"); }); opcionesBTN.addEventListener("click", function() { menu.classList.add("deslizar"); }); </script> 
+const menu = document.getElementById("menu");
+const explorar = document.getElementById("explorarBTN");
+const opciones = document.getElementById("opcionesBTN");
+
+explorar.addEventListener("click", () => {
+  menu.classList.add("deslizar");
+});
+
+opciones.addEventListener("click, () => {
+  menu.classList.add("deslizar");
+});
