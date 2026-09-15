@@ -31,6 +31,7 @@ html, body {
   font-weight: bold;
   display: block;
   color: white;
+  -webkit-text-stroke: 2px black;
 }
 
 .subtitulo {
@@ -38,6 +39,7 @@ html, body {
   margin-top: 0px;
   display: block;
   color: white;
+  -webkit-text-stroke: 2px black;
 }
 
 #explorarBTN {
