@@ -30,12 +30,14 @@ html, body {
   margin-bottom: 5px;
   font-weight: bold;
   display: block;
+  color: white;
 }
 
 .subtitulo {
   font-size: 30px;
   margin-top: 0px;
   display: block;
+  color: teal;
 }
 
 #explorarBTN {
