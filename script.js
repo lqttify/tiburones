@@ -3,6 +3,6 @@
     const menu = document.getElementById("menu");
 
     explorarBTN.addEventListener("click", function() {
-        menubar.style.transform = "translateX(-100%)";
+        menu.style.transform = "translateX(-100%)";
     });
      </script> 
