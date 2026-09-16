@@ -1,0 +1,84 @@
+html, body {
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom, #9DBEBB, #77ACA2, #468189, #031926);
+  background-attachment: fixed;
+  margin: 0px;
+  padding: 0px;
+}
+
+#menu {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 500px;
+  height:100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 15px;
+  background-color: #FFFFFF80;
+  
+  transition: transform 0.6s ease; }
+   
+#menu.deslizar { 
+     transform: translateX(-100%);
+}
+
+.titulo {
+  font-size: 70px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  display: block;
+  color: white;
+  -webkit-text-stroke: 1px teal;
+}
+
+.subtitulo {
+  font-size: 30px;
+  margin-top: 0px;
+  display: block;
+  color: teal;
+}
+
+#explorarBTN {
+  background-color: #068D9D;
+  color: white;
+  font-size: 20px;
+  font-family: "Concert One", sans-serif;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#explorarBTN:hover {
+  background-color: #042A2B !important ;
+}
+
+#opcionesBTN {
+  background-color: #068D9D;
+  color: white;
+  font-size: 20px;
+  font-family: "Concert One", sans-serif;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+  .concert-one-regular {
+  font-family: "Concert One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#opcionesBTN:hover {
+  background-color: #042A2B !important ;
+}
