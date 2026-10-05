@@ -1,3 +1,7 @@
+    if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+    }
+    
     const explorarBTN = document.getElementById("explorarBTN");
     const menu = document.getElementById("menu");
     const volverBTN = document.getElementById("volverBTN");
