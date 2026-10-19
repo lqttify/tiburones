@@ -1,8 +1,3 @@
-
-// ========================================
-// CONFIGURACIÓN
-// ========================================
-
 if ("scrollRestoration" in history) {
     history.scrollRestoration = "manual";
   }
@@ -38,11 +33,6 @@ if ("scrollRestoration" in history) {
   let tiburonSeleccionado = null;
   let imagenAmpliada = null;
   
-  
-  // ========================================
-  // MENÚ
-  // ========================================
-  
   explorarBTN.addEventListener("click", () => {
     menu.style.transform = "translateX(-100%)";
   
@@ -69,15 +59,7 @@ if ("scrollRestoration" in history) {
       behavior: "auto"
     });
   });
-  
-  
-  // ========================================
-  // INFORMACIÓN DE LOS TIBURONES
-  // ========================================
-  
-  // Los nombres comunes pueden referirse a distintas especies.
-  // Cuando no se identifica una especie exacta, se indica en la ficha.
-  
+ 
   const informacionTiburones = {
     tiburonleopardo: {
       nombre: "Tiburón leopardo",
@@ -213,7 +195,7 @@ if ("scrollRestoration" in history) {
   
     tiburonazul: {
       nombre: "Tiburón azul",
-      descripcion: "Es esbelto, elegante y puede viajar enormes distancias. Si el mar tuviera una pista de carreras, este nadador sería un gran candidato.",
+      descripcion: "Este tiburón es un viajero del océano muy veloz que destaca por su color llamativo. Es uno de los más veloces del planeta y le gusta recorrer miles de kilometros.",
       habitat: "Aguas oceánicas templadas y tropicales de todo el mundo.",
       alimentacion: "Calamares y peces pelágicos, entre otras presas.",
       orden: "Carcharhiniformes",
@@ -249,7 +231,7 @@ if ("scrollRestoration" in history) {
   
     tiburonboquiancho: {
       nombre: "Tiburón boquiancho",
-      descripcion: "¡Una boca enorme y un misterio! Es tan raro y poco frecuente de observar que cada encuentro ayuda a los científicos a conocerlo un poquito mejor.",
+      descripcion: "Este pez, reconocible por su enorme boca, es tan raro y poco frecuente de observar que se sabe poco de él. Cada encuentro ayuda a los científicos a conocerlo mejor.",
       habitat: "Aguas oceánicas profundas de regiones tropicales y templadas cálidas.",
       alimentacion: "Se cree que filtra plancton y pequeños organismos marinos.",
       orden: "Lamniformes",
@@ -261,7 +243,7 @@ if ("scrollRestoration" in history) {
   
     tiburonsalmon: {
       nombre: "Tiburón salmón",
-      descripcion: "¡Un tiburón preparado para el frío! Puede mantener su cuerpo más caliente que el agua que lo rodea, una ventaja para perseguir presas en las aguas frescas del Pacífico Norte.",
+      descripcion: "Este bichito de apariencia desorientada y ojos saltones puede mantener su cuerpo más caliente que el agua que lo rodea, una ventaja para perseguir presas en las aguas frescas del Pacífico Norte.",
       habitat: "Pacífico Norte, tanto en zonas costeras como oceánicas.",
       alimentacion: "Peces como salmones y arenques, además de calamares.",
       orden: "Lamniformes",
@@ -273,19 +255,19 @@ if ("scrollRestoration" in history) {
   
     tiburonpigmeo: {
       nombre: "Tiburón pigmeo",
-      descripcion: "¡Parece una mojarrita, pero te juro que es un tiburón! Es tan pequeñito que cabe en comparación con muchos peces de acuario. Eso sí: ¡no es una mascota, es un explorador del océano profundo!",
+      descripcion: "¡Parece una mojarrita, pero te juro que es un tiburón! Es el segundo tiburón más pequeño que existe. Durante la noche ascienden a comer, y de día se camuflan de los depredadores en las profundidades gracias a su bioluminiscencia.",
       habitat: "Aguas oceánicas profundas, especialmente en regiones tropicales y templadas cálidas.",
       alimentacion: "Pequeños peces, calamares y otros animales diminutos del océano.",
       orden: "Squaliformes",
       familia: "Dalatiidae",
       caracteristicas: "Tamaño diminuto, cuerpo alargado y ojos grandes en relación con su cabeza.",
-      conservacion: "Datos insuficientes (DD)",
-      nota: "Referencia para el tiburón pigmeo Euprotomicrus bispinatus. Conviene confirmar la especie exacta de la imagen antes de fijar una categoría oficial."
+      conservacion: "Preocupación menor (LC)",
+      nota: "Referencia para el tiburón pigmeo Euprotomicrus bispinatus."
     },
   
     tiburonduende: {
       nombre: "Tiburón duende",
-      descripcion: "¡Buuuu! Bueno, no hace falta asustarse. Su hocico largo y sus mandíbulas que pueden proyectarse lo hacen parecer salido de una película de monstruos, pero es un especialista en cazar en las profundidades.",
+      descripcion: "Su hocico largo lo hace parecer salido de una película de terror, pero es un especialista en cazar en las profundidades. Puede proyectar su mandibula para adelante como una garra para cazar, por si no te parecía lo suficientemente inquietante.",
       habitat: "Taludes continentales y otras zonas profundas de los océanos.",
       alimentacion: "Peces, calamares y crustáceos de aguas profundas.",
       orden: "Lamniformes",
@@ -297,7 +279,7 @@ if ("scrollRestoration" in history) {
   
     tiburondegroenlandia: {
       nombre: "Tiburón de Groenlandia",
-      descripcion: "¡El abuelito misterioso del Ártico! Este tiburón crece muy despacio y puede vivir durante siglos. Mientras otros van a toda velocidad, él se toma la vida con una calma impresionante.",
+      descripcion: "Este tiburón crece muy despacio y puede vivir durante siglos, con estimaciones de hasta 500 años de vida. Se toma la vida con bastante calma, ¡incluso los latidos de su corazón son lentos!",
       habitat: "Aguas frías del Atlántico Norte y el océano Ártico, desde zonas profundas hasta aguas menos profundas.",
       alimentacion: "Peces y otros animales marinos; se han encontrado restos de mamíferos marinos en su dieta.",
       orden: "Squaliformes",
@@ -309,7 +291,7 @@ if ("scrollRestoration" in history) {
   
     tiburongatuzo: {
       nombre: "Tiburón gatuzo",
-      descripcion: "¡Un vecino del mar argentino! Este tiburón es más bien pequeño y esbelto, y vive cerca del fondo. Aunque no tenga fama de gigante, también es una pieza importante del ecosistema marino.",
+      descripcion: "Este tiburón es más bien pequeño y esbelto, y vive cerca del fondo. Es una pieza importante del ecosistema marino argentino que por culpa de la pesca está en peligro de extinción.",
       habitat: "Aguas costeras y de la plataforma continental de Sudamérica, incluido el Atlántico sudoccidental.",
       alimentacion: "Peces pequeños, crustáceos y otros invertebrados del fondo.",
       orden: "Carcharhiniformes",
@@ -332,7 +314,7 @@ const tiburones = [
     { nombre: "tiburonangel", profundidadVisual: 150, tamano: 125, duracion: 17, retraso: -11 },
     { nombre: "tiburonlimon", profundidadVisual: 75, tamano: 175, duracion: 14, retraso: -4 },
     { nombre: "tiburontoro", profundidadVisual: 250, tamano: 190, duracion: 13, retraso: -8, invertido: true },
-    { nombre: "tiburongatopardo", profundidadVisual: 400, tamano: 115, duracion: 15, retraso: -10 },
+    { nombre: "tiburongatopardo", profundidadVisual: 400, tamano: 175, duracion: 15, retraso: -10 },
     { nombre: "tiburontigre", profundidadVisual: 550, tamano: 230, duracion: 14, retraso: -5, invertido: true },
     { nombre: "tiburonmartillo", profundidadVisual: 700, tamano: 175, duracion: 16, retraso: -12 },
     { nombre: "tiburonsierra", profundidadVisual: 100, tamano: 165, duracion: 18, retraso: -6, invertido: true },
