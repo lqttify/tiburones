@@ -1,36 +1,70 @@
-html, body {
-  background-image: linear-gradient(to bottom, #9DBEBB, #77ACA2, #468189, #031926);
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 100vh;
-  margin: 0px;
-  padding: 0px;
+html {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  overflow: hidden !important;
+  margin: 0;
+  padding: 0;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+
+  background: linear-gradient(
+    to bottom,
+    #8CB9B5 0%,
+    #579A98 25%,
+    #317C83 50%,
+    #155766 70%,
+    #0A394B 85%,
+    #031926 100%
+  );
+
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 #menu {
-  box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
-  position: relative;
-  left: 0px;
-  top: 0px;
-  width: 500px;
-  height: 1000vh;
+  grid-column: 1;
+  grid-row: 1;
 
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 500px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: top; 
+  justify-content: flex-start;
   align-items: center;
-
   gap: 15px;
   background-color: #FFFFFF80;
-  
-  transition: transform 0.6s ease; }
-  
+  transition: transform 0.6s ease;
+}
+
+
+#menu {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 500px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 15px;
+  background-color: #FFFFFF80;
+  transition: transform 0.6s ease;
+}
+
 .titulo {
   font-size: 70px;
   margin-bottom: 5px;
@@ -61,7 +95,7 @@ body {
 }
 
 #explorarBTN:hover {
-  background-color: #042A2B !important ;
+  background-color: #042A2B !important;
 }
 
 #opcionesBTN {
@@ -75,47 +109,79 @@ body {
   cursor: pointer;
   transition: background 0.3s;
 }
-  .concert-one-regular {
+
+.concert-one-regular {
   font-family: "Concert One", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
 #opcionesBTN:hover {
-  background-color: #042A2B !important ;
+  background-color: #042A2B !important;
 }
 
 #volverBTN {
-position: fixed;
-top: 20px;
-left: 20px;
-z-index: 99999;
--webkit-transform: translate3d(500px, 0, 0);
-will-change: transform, opacity;
-font-size: 30px;
-background: none;
-border: none;
-cursor: pointer;
-opacity: 0;
-transform: translateX(500px);
-transition: transform 0.6s ease;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 99999;
+  -webkit-transform: translate3d(500px, 0, 0);
+  transform: translateX(500px);
+  will-change: transform, opacity;
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  transition: transform 0.6s ease;
 }
 
 #regla {
+  grid-column: 1;
+  grid-row: 1;
+
   box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  height: 100vh;
+  margin: 0 0 0 auto;
+  padding: 0;
+
+  position: relative;
+  top: 0;
+  right: 0;
+
+  height: auto;
+  min-height: 100vh;
 
   display: flex;
   flex-direction: column;
-  justify-content: left; 
-  align-items: left;
+  justify-content: flex-start;
+  align-items: flex-start;
 
   will-change: opacity;
   opacity: 0;
   transition: transform 0.6s ease;
+}
+
+#acuario {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 100px);
+  grid-auto-rows: 100px;
+  width: 100%;
+
+  grid-column: 1;
+  grid-row: 1;
+
+  position: relative;
+  z-index: 0;
+  align-self: start;
+}
+
+.celda {
+  width: 100px;
+  height: 100px;
+  box-sizing: border-box;
+}
+
+#menu,
+#regla {
+  z-index: 2;
 }
