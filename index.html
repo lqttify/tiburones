@@ -1,499 +1,128 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
 
-  <title>Tibupedia</title> 
-
+  <title>Tibupedia</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css" integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-  
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+    integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  >
 </head>
 
 <body>
-<div id="menu">
-  <h1 style="font-family: Concert One, sans-serif;" class="titulo">TIBUPEDIA</h1>
-  <h2 style="font-family: Concert One, sans-serif;" class="subtitulo">Acuario Interactivo</h2>
+  <div id="menu">
+    <h1 class="titulo">TIBUPEDIA</h1>
+    <h2 class="subtitulo">Acuario Interactivo</h2>
+    <button id="explorarBTN">EXPLORAR LAS PROFUNDIDADES</button>
+    <button id="opcionesBTN">MÁS OPCIONES</button>
+  </div>
 
-  <button id="explorarBTN">EXPLORAR LAS PROFUNDIDADES</button>
-  <button id="opcionesBTN">MÁS OPCIONES</button>  
+  <button id="volverBTN" aria-label="Volver al menú">
+    <i class="fa-solid fa-circle-left"></i>
+  </button>
+
+  <main id="acuario"></main>
+  <div id="regla" aria-hidden="true"></div>
+
+  <aside id="fichaTiburon" aria-hidden="true" hidden>
+    <button id="cerrarFichaBTN" aria-label="Cerrar información">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="ficha-contenido">
+      <p class="ficha-etiqueta">¡HOLA, TIBURÓN!</p>
+      <h2 id="fichaNombre"></h2>
+      <p id="fichaProfundidad" class="ficha-profundidad"></p>
+
+      <div class="ficha-separador"></div>
+
+      <h3>Sobre esta especie</h3>
+      <p id="fichaDescripcion"></p>
+
+      <h3>Hábitat</h3>
+      <p id="fichaHabitat"></p>
+
+      <h3>Alimentación</h3>
+      <p id="fichaAlimentacion"></p>
+
+      <div class="ficha-separador"></div>
+
+      <h3 class="titulo-datos">Su ficha científica</h3>
+
+      <div class="dato-ficha">
+        <div class="dato-encabezado">
+          <span>Orden</span>
+          <button class="info-btn" type="button" aria-label="¿Qué es el orden?" aria-expanded="false">
+            i
+            <span class="info-tooltip">Es una gran familia de familias. Los científicos agrupan especies con características evolutivas compartidas en órdenes.</span>
+          </button>
+        </div>
+        <p id="fichaOrden"></p>
+      </div>
+
+      <div class="dato-ficha">
+        <div class="dato-encabezado">
+          <span>Familia</span>
+          <button class="info-btn" type="button" aria-label="¿Qué es la familia?" aria-expanded="false">
+            i
+            <span class="info-tooltip">Es un grupo más específico dentro de un orden: reúne géneros de animales emparentados entre sí.</span>
+          </button>
+        </div>
+        <p id="fichaFamilia"></p>
+      </div>
+
+      <div class="dato-ficha">
+        <div class="dato-encabezado">
+          <span>Características clave</span>
+          <button class="info-btn" type="button" aria-label="¿Qué son las características clave?" aria-expanded="false">
+            i
+            <span class="info-tooltip">¡Las pistas para reconocerlo! Son los rasgos de su aspecto que ayudan a distinguirlo de otros tiburones.</span>
+          </button>
+        </div>
+        <p id="fichaCaracteristicas"></p>
+      </div>
+
+      <div class="dato-ficha">
+        <div class="dato-encabezado">
+          <span>Estado de conservación</span>
+          <button class="info-btn info-conservacion-btn" type="button" aria-label="¿Qué significa la escala de conservación?" aria-expanded="false">
+            i
+            <span class="info-tooltip info-tooltip-largo">
+              La Lista Roja de la UICN evalúa el riesgo de extinción. De menor a mayor preocupación: Preocupación Menor (LC), Casi Amenazado (NT), Vulnerable (VU), En Peligro (EN) y En Peligro Crítico (CR). También existen Datos Insuficientes (DD), No Evaluado (NE), Extinto en Estado Silvestre (EW) y Extinto (EX). DD no significa que esté a salvo: significa que falta información.
+            </span>
+          </button>
+        </div>
+        <p id="fichaConservacion"></p>
+        <p id="fichaConservacionNota" class="conservacion-nota"></p>
+      </div>
+    </div>
+  </aside>
+
+  
+  <div class="cartel-proceso" id="cartelProceso" hidden>
+  <h2>¡EN PROCESO!</h2>
+
+  <p>Pronto habrán actividades y otras curiosidades que no me ha dado el tiempo para implementar.</p>
+
+  <p class="cartel-subtexto">
+      ¡Volvé pronto!
+  </p>
+
+  <span class="cartel-pie">🌊 TIBUPEDIA · EN CONSTRUCCIÓN</span>
 </div>
 
-<button id="volverBTN"> <i style="color: white;" class="fa-solid fa-circle-left"></i> </button>
-
-<div id="acuario">
-  <div class="celda"></div>
-  <div class="celda"></div>
-  <div class="celda"></div>
-  <div class="celda"></div>
-  <div class="celda"></div>
-  <div class="celda"></div>
-  <div class="celda"></div>
-  <div class="celda"></div>
-  <div class="celda"></div>
-  <div class="celda"></div>
-  <div class="celda"></div>
-  <div class="celda"></div>
-  <div class="celda"></div>
-  <div class="celda"></div>
-  <div class="celda"></div>
-  <div class="celda"></div>
-</div>
-
-<div id="regla">
-  <table style="color: white;">
-    <tr><td>— 0</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 50</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 100</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 150</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 200</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 250</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 300</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 350</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 400</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 450</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 500</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 550</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 600</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 650</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 700</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 750</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 800</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 850</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 900</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 950</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 1000</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 1050</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 1100</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 1150</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 1200</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 1250</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 1300</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 1350</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 1400</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 1450</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 1500</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 1550</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 1600</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 1650</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 1700</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 1750</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 1800</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 1850</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 1900</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 1950</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 2000</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 2050</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 2100</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 2150</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 2200</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 2250</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 2300</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 2350</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 2400</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 2450</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 2500</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 2550</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 2600</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 2650</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 2700</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 2750</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 2800</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 2850</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 2900</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 2950</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 3000</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 3050</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 3100</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 3150</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 3200</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 3250</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 3300</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 3350</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 3400</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 3450</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 3500</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 3550</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 3600</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 3650</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-    <tr><td>-</td></tr>
-
-    <tr><td>— 3675</td></tr>
-  </table>
-</div>
-
-<script src="script.js"></script> 
+  <script src="script.js"></script>
 </body>
 </html>

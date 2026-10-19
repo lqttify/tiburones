@@ -1,15 +1,23 @@
+
+* {
+  box-sizing: border-box;
+}
+
 html {
   margin: 0;
   padding: 0;
+  width: 100%;
+  overflow-x: clip;
 }
 
 body {
   margin: 0;
   padding: 0;
-
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: clip;
+  overflow-y: auto;
 
   background: linear-gradient(
     to bottom,
@@ -25,163 +33,637 @@ body {
   background-size: 100% 100%;
 }
 
-#menu {
-  grid-column: 1;
-  grid-row: 1;
-
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  left: 0;
-  top: 0;
-  width: 500px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 15px;
-  background-color: #FFFFFF80;
-  transition: transform 0.6s ease;
-}
-
+/* MENÚ */
 
 #menu {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  position: relative;
-  left: 0;
-  top: 0;
-  width: 500px;
-  min-height: 100vh;
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: min(500px, 100vw);
+  height: 100vh;
+  padding: 0 15px;
+
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
   gap: 15px;
+
   background-color: #FFFFFF80;
+  z-index: 100;
+
+  transform: translateX(0);
   transition: transform 0.6s ease;
 }
 
 .titulo {
-  font-size: 70px;
-  margin-bottom: 5px;
   margin-top: 200px;
-  font-weight: bold;
-  display: block;
-  color: white;
-  -webkit-text-stroke: 1px teal;
+  margin-bottom: 5px;
+  color: #064653;
+  font-family: "Concert One", sans-serif;
+  font-size: clamp(42px, 9vw, 70px);
+  text-align: center;
 }
 
 .subtitulo {
-  font-size: 30px;
-  margin-top: 0px;
-  display: block;
+  margin-top: 0;
   color: teal;
-}
-
-#explorarBTN {
-  background-color: #068D9D;
-  color: white;
-  font-size: 20px;
   font-family: "Concert One", sans-serif;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
+  font-size: clamp(22px, 5vw, 30px);
+  text-align: center;
 }
 
-#explorarBTN:hover {
-  background-color: #042A2B !important;
-}
+/* BOTONES */
 
+#explorarBTN,
 #opcionesBTN {
-  background-color: #068D9D;
-  color: white;
-  font-size: 20px;
-  font-family: "Concert One", sans-serif;
+  max-width: 100%;
   padding: 12px 24px;
   border: none;
   border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.concert-one-regular {
+  background-color: #068D9D;
+  color: white;
   font-family: "Concert One", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
+#explorarBTN:hover,
 #opcionesBTN:hover {
-  background-color: #042A2B !important;
+  background-color: #042A2B;
 }
+
+/* VOLVER */
 
 #volverBTN {
   position: fixed;
   top: 20px;
   left: 20px;
   z-index: 99999;
-  -webkit-transform: translate3d(500px, 0, 0);
-  transform: translateX(500px);
-  will-change: transform, opacity;
-  font-size: 30px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  opacity: 0;
-  transition: transform 0.6s ease;
-}
-
-#regla {
-  grid-column: 1;
-  grid-row: 1;
-
-  box-sizing: border-box;
-  margin: 0 0 0 auto;
   padding: 0;
+  border: none;
+  background: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
 
-  position: relative;
-  top: 0;
-  right: 0;
-
-  height: auto;
-  min-height: 100vh;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-
-  will-change: opacity;
   opacity: 0;
-  transition: transform 0.6s ease;
+  transform: translateX(500px);
+  pointer-events: none;
+
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
+
+/* ACUARIO */
 
 #acuario {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 100px);
-  grid-auto-rows: 100px;
-  width: 100%;
-
-  grid-column: 1;
-  grid-row: 1;
-
   position: relative;
-  z-index: 0;
-  align-self: start;
+  width: 100%;
+  height: 0;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-auto-rows: 100px;
+  align-content: start;
+
+  overflow: clip;
+  z-index: 1;
 }
 
 .celda {
-  width: 100px;
+  width: 100%;
   height: 100px;
-  box-sizing: border-box;
+  min-width: 0;
 }
 
-#menu,
-#regla {
+/* TIBURONES */
+
+.tiburon {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  pointer-events: none;
   z-index: 2;
+}
+
+.nadador {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: max-content;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+
+  animation: recorrido var(--duracion, 16s) linear infinite;
+  animation-delay: var(--retraso, 0s);
+
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.tiburon img {
+  width: var(--tamano, 150px);
+  height: auto;
+  max-height: none;
+  max-width: none;
+  object-fit: contain;
+  display: block;
+}
+
+@keyframes recorrido {
+  from {
+    transform: translateX(-220px);
+  }
+
+  to {
+    transform: translateX(calc(100vw + 220px));
+  }
+}
+
+@keyframes recorrido-inverso {
+  from {
+    transform: translateX(calc(100vw + 220px));
+  }
+
+  to {
+    transform: translateX(-220px);
+  }
+}
+
+@keyframes nadar {
+  0%, 100% {
+    translate: 0 -3px;
+  }
+
+  50% {
+    translate: 0 3px;
+  }
+}
+
+/* REGLA */
+
+#regla {
+  position: absolute;
+  top: 120px;
+  right: 0;
+  width: 75px;
+  height: 0;
+  margin: 0;
+  padding: 0;
+
+  overflow: clip;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+
+  transition: opacity 0.6s ease;
+}
+
+.marca-profundidad {
+  position: absolute;
+  right: 0;
+  width: 75px;
+  height: 1px;
+  border-top: 1px solid #FFFFFF70;
+}
+
+.marca-profundidad::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: 0;
+  width: 14px;
+  border-top: 2px solid white;
+}
+
+.marca-profundidad.etiqueta::before {
+  width: 25px;
+}
+
+.numero-profundidad {
+  position: absolute;
+  top: 2px;
+  right: 29px;
+  color: white;
+  font-family: "Concert One", sans-serif;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+/* ========================================
+   FICHA DEL TIBURÓN
+======================================== */
+
+#fichaTiburon[hidden] {
+  display: none !important;
+}
+
+#fichaTiburon {
+  position: fixed;
+  top: 50%;
+  right: 95px;
+  transform: translateY(-50%);
+
+  width: min(390px, calc(100vw - 130px));
+  max-height: 82vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  padding: 28px 25px;
+  border: 2px solid #FFFFFF90;
+  border-radius: 20px;
+
+  background: linear-gradient(155deg, #D9F1ECF7, #91C8C9F7);
+  color: #073744;
+  box-shadow: 0 12px 40px #00151F50;
+
+  z-index: 1000;
+  font-family: Arial, sans-serif;
+
+  scrollbar-width: thin;
+  scrollbar-color: #068D9D #D9F1EC;
+
+  animation: aparecerFicha 0.35s ease both;
+}
+
+@keyframes aparecerFicha {
+  from {
+    opacity: 0;
+    transform: translate(20px, -50%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
+}
+
+#cerrarFichaBTN {
+  position: sticky;
+  top: 0;
+  float: right;
+
+  width: 35px;
+  height: 35px;
+  margin: -10px -8px 8px 12px;
+
+  display: grid;
+  place-items: center;
+
+  border: none;
+  border-radius: 50%;
+  background-color: #068D9D;
+  color: white;
+  font-size: 21px;
+
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+#cerrarFichaBTN:hover {
+  background-color: #042A2B;
+  transform: rotate(90deg);
+}
+
+.ficha-contenido {
+  clear: both;
+}
+
+.ficha-etiqueta {
+  margin: 0 0 8px;
+  color: #237C83;
+  font-family: "Concert One", sans-serif;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+}
+
+#fichaNombre {
+  margin: 0 0 12px;
+  color: #064653;
+  font-family: "Concert One", sans-serif;
+  font-size: clamp(27px, 4vw, 36px);
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+
+.ficha-profundidad {
+  display: inline-block;
+  margin: 0;
+  padding: 7px 12px;
+  border-radius: 20px;
+  background-color: #068D9D;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.ficha-separador {
+  height: 2px;
+  margin: 20px 0;
+  background-color: #FFFFFFB0;
+}
+
+#fichaTiburon h3 {
+  margin: 17px 0 6px;
+  color: #075763;
+  font-family: "Concert One", sans-serif;
+  font-size: 20px;
+}
+
+#fichaTiburon .ficha-contenido > p:not(.ficha-etiqueta):not(.ficha-profundidad) {
+  margin: 0;
+  color: #174A53;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+/* DATOS CIENTÍFICOS */
+
+.titulo-datos {
+  margin-top: 0 !important;
+  margin-bottom: 12px !important;
+}
+
+.dato-ficha {
+  padding: 12px 0;
+  border-bottom: 1px solid #FFFFFFB0;
+}
+
+.dato-encabezado {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+
+  color: #075763;
+  font-family: "Concert One", sans-serif;
+  font-size: 18px;
+}
+
+.dato-ficha > p {
+  margin: 0;
+  color: #174A53;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* BOTÓN DE INFORMACIÓN */
+
+.info-btn {
+  position: relative;
+  flex: 0 0 auto;
+
+  width: 19px;
+  height: 19px;
+  padding: 0;
+
+  display: inline-grid;
+  place-items: center;
+
+  border: 1.5px solid #068D9D;
+  border-radius: 50%;
+  background: transparent;
+  color: #068D9D;
+
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  font-style: italic;
+
+  cursor: help;
+}
+
+/*
+  El texto original queda guardado dentro del botón,
+  pero no se muestra allí. JavaScript crea una copia
+  flotante directamente en el body.
+*/
+
+.info-btn > .info-tooltip {
+  display: none;
+}
+
+/* GLOBITO FLOTANTE */
+
+.info-tooltip.tooltip-flotante {
+  display: block;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: auto;
+  right: auto;
+
+  width: min(240px, calc(100vw - 24px));
+  max-width: calc(100vw - 16px);
+  max-height: calc(100vh - 16px);
+
+  padding: 12px 14px;
+
+  border: 1px solid #FFFFFF80;
+  border-radius: 10px;
+
+  background: #073744;
+  color: white;
+
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.5;
+  text-align: left;
+  overflow-wrap: anywhere;
+  overflow-y: auto;
+
+  opacity: 1;
+  visibility: visible;
+  pointer-events: none;
+
+  z-index: 20000;
+
+  box-shadow: 0 6px 20px #00151F50;
+}
+
+.info-tooltip.tooltip-flotante.info-tooltip-largo {
+  width: min(290px, calc(100vw - 24px));
+}
+
+/* NOTA DE CONSERVACIÓN */
+
+.conservacion-nota {
+  margin-top: 7px !important;
+  color: #38656A !important;
+  font-size: 12px !important;
+  font-style: italic;
+}
+
+/* IMAGEN AMPLIADA */
+
+.tiburon-zoom {
+  position: fixed;
+  z-index: 1001;
+
+  display: block;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+
+  pointer-events: none;
+  user-select: none;
+
+  transition:
+    left 0.65s cubic-bezier(0.2, 0.8, 0.2, 1),
+    top 0.65s cubic-bezier(0.2, 0.8, 0.2, 1),
+    width 0.65s cubic-bezier(0.2, 0.8, 0.2, 1),
+    height 0.65s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  filter: drop-shadow(0 8px 12px #00151F50);
+}
+
+/* TABLETS Y CELULARES */
+
+@media (max-width: 650px) {
+  #menu {
+    padding: 0 10px;
+  }
+
+  .titulo {
+    margin-top: 160px;
+  }
+
+  #explorarBTN,
+  #opcionesBTN {
+    padding: 10px 14px;
+    font-size: 17px;
+  }
+
+  #regla,
+  .marca-profundidad {
+    width: 60px;
+  }
+
+  .numero-profundidad {
+    right: 23px;
+    font-size: 12px;
+  }
+
+  #fichaTiburon {
+    top: auto;
+    right: 10px;
+    bottom: 10px;
+    left: 10px;
+
+    width: auto;
+    max-height: 47vh;
+    padding: 20px;
+
+    border-radius: 18px;
+    transform: none;
+  }
+
+  @keyframes aparecerFicha {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  #fichaNombre {
+    font-size: 29px;
+  }
+
+  .info-tooltip.tooltip-flotante {
+    width: min(250px, calc(100vw - 24px));
+  }
+
+  .info-tooltip.tooltip-flotante.info-tooltip-largo {
+    width: min(290px, calc(100vw - 24px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nadador,
+  .tiburon img {
+    animation: none;
+  }
+
+  #menu,
+  #volverBTN,
+  #regla,
+  .tiburon-zoom {
+    transition-duration: 0.01ms;
+  }
+}
+
+
+.tiburon {
+  overflow: visible;
+}
+
+.tiburon img {
+  width: var(--tamano, 150px);
+  height: auto;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+  display: block;
+}
+
+
+.cartel-proceso {
+  width: min(90%, 600px);
+  margin: 60px auto;
+  padding: 35px 25px;
+  text-align: center;
+
+  background: #031926;
+  color: #FFFFFF;
+
+  border: 2px solid #468189;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px #03192655;
+}
+
+.cartel-icono {
+  display: block;
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.cartel-proceso h2 {
+  color: #9DBEBB;
+  font-family: "Concert One", sans-serif;
+  font-size: clamp(24px, 5vw, 36px);
+  margin-bottom: 18px;
+}
+
+.cartel-proceso p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.cartel-proceso .cartel-subtexto {
+  color: #77ACA2;
+  font-weight: bold;
+}
+
+.cartel-pie {
+  display: block;
+  margin-top: 25px;
+  color: #9DBEBB;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.cartel-proceso[hidden] {
+  display: none !important;
 }
