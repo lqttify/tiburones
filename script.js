@@ -70,7 +70,7 @@ if ("scrollRestoration" in history) {
       familia: "Triakidae",
       caracteristicas: "Cuerpo robusto, hocico corto y manchas oscuras que forman dibujos sobre el dorso y los costados.",
       conservacion: "Preocupación Menor (LC)",
-      nota: "Referencia para Triakis semifasciata. La categoría puede variar si la imagen representa otra especie con el mismo nombre común."
+      nota: "Referencia para Triakis semifasciata."
     },
   
     tiburonangel: {
@@ -82,7 +82,7 @@ if ("scrollRestoration" in history) {
       familia: "Squatinidae",
       caracteristicas: "Cuerpo muy aplanado, aletas pectorales anchas y ojos situados en la parte superior de la cabeza.",
       conservacion: "Depende de la especie",
-      nota: "El tiburón ángel europeo (Squatina squatina) está En Peligro Crítico (CR). Otros tiburones ángel tienen categorías diferentes."
+      nota: "Referencia para Squatina squatina."
     },
   
     tiburonlimon: {
@@ -141,8 +141,8 @@ if ("scrollRestoration" in history) {
       orden: "Carcharhiniformes",
       familia: "Sphyrnidae",
       caracteristicas: "Cabeza extendida lateralmente, con los ojos y otros órganos sensoriales separados a ambos lados.",
-      conservacion: "Depende de la especie",
-      nota: "Existen varias especies de tiburón martillo y sus categorías son distintas. Algunas, como el martillo común, están En Peligro Crítico (CR)."
+      conservacion: "Crítico (CR)",
+      nota: "Referencia para Sphyrna lewini"
     },
   
     tiburonsierra: {
@@ -190,7 +190,7 @@ if ("scrollRestoration" in history) {
       familia: "Alopiidae",
       caracteristicas: "Lóbulo superior de la cola extraordinariamente largo, a veces casi tan largo como el resto del cuerpo.",
       conservacion: "Vulnerable (VU)",
-      nota: "Hay varias especies de tiburón zorro, esta información hace referencia al Alopias vulpinus"
+      nota: "Referencia para Alopias vulpinus. Otras especies de tiburón zorro pueden presentar distintas categorías."
     },
   
     tiburonazul: {
@@ -238,7 +238,7 @@ if ("scrollRestoration" in history) {
       familia: "Megachasmidae",
       caracteristicas: "Cabeza voluminosa, boca muy grande y cuerpo robusto.",
       conservacion: "Datos insuficientes (DD)",
-      nota: "Referencia para Megachasma pelagios. DD significa que la información no alcanza para evaluar bien su riesgo; no significa que esté a salvo."
+      nota: "Referencia para Megachasma pelagios. DD significa que la información no alcanza para evaluar bien su riesgo, no significa que esté a salvo."
     },
   
     tiburonsalmon: {
@@ -301,14 +301,7 @@ if ("scrollRestoration" in history) {
       nota: "Referencia para Mustelus schmitti. La categoría debe verificarse en la evaluación vigente de la UICN antes de usarla como dato académico."
     }
   };
-  
-  
-  // ========================================
-  // LISTA Y DISTRIBUCIÓN DE LOS TIBURONES
-  // Se conservan profundidades, tamaños y recorridos
-  // ========================================
-  
-  
+
 const tiburones = [
     { nombre: "tiburonleopardo", profundidadVisual: 25, tamano: 155, duracion: 15, retraso: -7 },
     { nombre: "tiburonangel", profundidadVisual: 150, tamano: 125, duracion: 17, retraso: -11 },
@@ -332,12 +325,6 @@ const tiburones = [
     { nombre: "tiburongatuzo", profundidadVisual: 500, tamano: 105, duracion: 14, retraso: -7 }
 ];
 
-  
-  
-  // ========================================
-  // GRILLA
-  // ========================================
-  
   function crearGrilla() {
     acuario.querySelectorAll(".celda").forEach((celda) => celda.remove());
   
@@ -361,12 +348,7 @@ const tiburones = [
   
     acuario.prepend(fragmento);
   }
-  
-  
-  // ========================================
-  // CREAR LOS TIBURONES
-  // ========================================
-  
+ 
   function distribuirTiburones() {
     acuario.querySelectorAll(".tiburon").forEach((tiburon) => tiburon.remove());
   
@@ -527,11 +509,7 @@ const tiburones = [
     });
   }
   
-  
-  // ========================================
-  // CERRAR FICHA Y RESTAURAR RECORRIDO
-  // ========================================
-  
+
   function cerrarFicha() {
     if (imagenAmpliada) {
       imagenAmpliada.remove();
@@ -570,11 +548,6 @@ const tiburones = [
     }
   });
   
-  
-/* ========================================
-   ICONOS DE INFORMACIÓN: TOOLTIP FLOTANTE
-======================================== */
-
 let tooltipFlotante = null;
 let botonTooltipActual = null;
 
@@ -691,7 +664,6 @@ document.querySelectorAll(".info-btn").forEach((boton) => {
     boton.classList.add("tooltip-fijado");
   });
 
-  // Compatibilidad con navegación por teclado.
   boton.addEventListener("focus", () => {
     abrirTooltipFlotante(boton);
   });
@@ -703,7 +675,6 @@ document.querySelectorAll(".info-btn").forEach((boton) => {
   });
 });
 
-// Cerrar al hacer clic fuera de los botones de información.
 document.addEventListener("click", (evento) => {
   if (!evento.target.closest(".info-btn")) {
     if (botonTooltipActual) {
@@ -713,16 +684,12 @@ document.addEventListener("click", (evento) => {
     cerrarTooltipFlotante();
   }
 });
-
-// Reubicar el globito si cambia el tamaño de la pantalla
-// o si se desplaza la ficha.
 window.addEventListener("resize", actualizarPosicionTooltip);
 
 ficha.addEventListener("scroll", actualizarPosicionTooltip, {
   passive: true
 });
 
-// Cerrar los globitos con Escape.
 document.addEventListener("keydown", (evento) => {
   if (evento.key === "Escape") {
     if (botonTooltipActual) {
